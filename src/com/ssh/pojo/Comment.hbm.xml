@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-14 13:11:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.pojo.Comment" table="comment">
+        <id name="commentId" type="int">
+            <column name="commentId" />
+            <generator class="native" />
+        </id>
+        <property name="commentContent" type="java.lang.String">
+            <column name="commentContent" />
+        </property>
+        <property name="commentTime" type="java.util.Date">
+            <column name="commentTime" />
+        </property>
+        <property name="commentUserName" type="java.lang.String">
+            <column name="commentUserName" />
+        </property>
+        <property name="commentStatus" type="int">
+            <column name="commentStatus" />
+        </property>
+        
+        <many-to-one name="article" class="com.ssh.pojo.Article" column="articleId"></many-to-one>
+       
+        <set name="replys" table="reply" lazy="false" cascade="all" inverse="true" order-by="replyTime asc">
+            <key column="commentId"></key>
+     <!--       <list-index  column="replyId"></list-index>  --> 
+            <one-to-many class="com.ssh.pojo.Reply" />
+        </set>
+        
+
+    </class>
+</hibernate-mapping>

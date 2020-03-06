@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--  -->
+<hibernate-configuration>
+	
+	<session-factory>
+	<!-- 一、配置数据库信息 -->
+	<!-- 数据源配置到ioc容器中 -->
+	
+	<!-- 二、配置hibernate信息 -->
+			
+		<property name="hibernate.show_sql">true</property>
+		
+		<property name="hibernate.format_sql">true</property>
+	
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+	
+
+	
+	<!-- 三、配置映射文件到核心配置文件 -->
+	<!--  也配置到ioc容器中	-->
+
+
+	
+	</session-factory>
+</hibernate-configuration>

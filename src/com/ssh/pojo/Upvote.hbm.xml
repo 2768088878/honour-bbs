@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-17 15:57:03 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.pojo.Upvote" table="UPVOTE">
+        <id name="upvoteId" type="int">
+            <column name="upvoteId" />
+            <generator class="native" />
+        </id>
+        <property name="upvoteUserName" type="java.lang.String">
+            <column name="upvoteUserName" />
+        </property>
+        <property name="upvoteArticleId" type="int">
+            <column name="upvoteArticleId" />
+        </property>
+        <property name="isUpvote" type="int">
+            <column name="isUpvote" />
+        </property>
+    </class>
+</hibernate-mapping>

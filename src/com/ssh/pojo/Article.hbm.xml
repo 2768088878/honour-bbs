@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-12-12 16:19:57 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ssh.pojo.Article" table="article">
+        <id name="articleId" type="int">
+            <column name="articleId" />
+            <generator class="native" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="title" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
+        <property name="sendTime" type="java.util.Date">
+            <column name="sendTime" />
+        </property>
+        <property name="senderName" type="java.lang.String">
+            <column name="senderName" />
+        </property>
+        <property name="isTop" type="int">
+            <column name="isTop" />
+        </property>
+        <property name="replyCount" type="int">
+            <column name="replyCount" />
+        </property>
+        <property name="upvoteCount" type="int">
+            <column name="upvoteCount" />
+        </property>
+        <property name="browseCount" type="int">
+            <column name="browseCount" />
+        </property>
+        <property name="zoneId" type="int">
+            <column name="zoneId" />
+        </property>
+        
+        <!-- name为 多方属性值， table为多方的表，list的 inverse=不能为true-->
+    	 <list name="comments" table="comment" cascade="all" inverse="false" lazy="false">
+    	 	<!-- 多方的外键 -->
+            <key column="articleId"></key>
+            <!-- index标签表示多的一方 对应一的一方的索引位置   
+                column属性表示数据库中存放数据的字段  
+                index为关键字 避免跟关键字冲突 使用`index` 或 [index]  
+            -->  
+   			<!--   <index column="[index]" type="string"></index>       -->     
+         
+ 				 <list-index  column="commentId"></list-index> 
+                <one-to-many class="com.ssh.pojo.Comment"/>
+        </list>   
+    </class>
+</hibernate-mapping>
